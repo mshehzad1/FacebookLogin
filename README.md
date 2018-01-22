@@ -59,6 +59,7 @@ Facebook App id: Add your facebook app id in strings file.
 ```
 ## Step 4
 
+### Getting started ( First Method )
 Add following code in your Login activity class. Or copy the code and paste in your Login class
 
 ```
@@ -116,5 +117,37 @@ public class Login extends AppCompatActivity {
     }
 }
 
+```
+
+### Getting started ( Second Method )
+Create a private OSFacebookLogin variable
+
+```
+ private OSFacebookLogin osFacebookLogin;
+```
+Initialize the osFacebookLogin in activity onCreate method
+
+```
+ osFacebookLogin = new OSFacebookLogin(this);
+```
+Implements OSFacebookListener in your Login activity, it will add following methods in your Login activity class
+
+```
+public class Login extends AppCompatActivity implements OSFacebookListener{
+@Override
+    public void onFacebookSuccess(OSResponse osResponse) {
+        Toast.makeText(getApplicationContext(), osResponse.getName(), Toast.LENGTH_SHORT).show();
+    }
+    
+    @Override
+    public void onFacebookFailed(String errorMessage) {
+        Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
+    }
+    
+    @Override
+    public void onFacebookSignOut() {
+        Toast.makeText(getApplicationContext(), "Sign out successfully", Toast.LENGTH_SHORT).show();
+    }
+}
 ```
 
