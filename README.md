@@ -35,7 +35,7 @@ Create your facebook app on facebook developer console and get facebook app id.
 ### AndroidManifest
 
 Permissions: 
-Add the internet permissions
+Add internet permissions
 
 ```
 <uses-permission android:name="android.permission.INTERNET" />
@@ -48,7 +48,7 @@ Add following metadata in app manifest file
  android:name="com.facebook.sdk.ApplicationId"
  android:value="@string/facebook_app_id" />
 ```
-Facebook App id: Add your app facebook id in strings file.
+Facebook App id: Add your facebook app id in strings file.
 
 ```
 <resources>
