@@ -4,7 +4,7 @@ Origami Studios presents a fully integrated Facebook library for android platfor
 
 ## Dependency
 
-### Step 1:
+## Step 1
 
 Add the JitPack repository to your build file, 
 ### Gradle
@@ -18,8 +18,7 @@ allprojects {
     }
 }
 ```
-
-### Step 2:
+## Step 2
 
 Add the dependency
 
@@ -29,7 +28,7 @@ dependencies {
 }
 ```
 
-### Step 3:
+## Step 3
 
 ### Facebook App Id
 Create your facebook app on facebook developer console and get facebook app id.
