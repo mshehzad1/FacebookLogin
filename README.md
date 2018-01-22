@@ -54,7 +54,7 @@ Facebook App id: Add your facebook app id in strings file.
 
 ```
 <resources>
-    <string name="facebook_app_id">your facebook app id gose here .... </string>
+    <string name="facebook_app_id">your facebook app id goes here .... </string>
 </resources>
 
 ```
