@@ -57,4 +57,64 @@ Facebook App id: Add your facebook app id in strings file.
 </resources>
 
 ```
+## Step 4
+
+Add following code in your Login activity class. Or copy the code and paste in your Login class
+
+```
+public class Login extends AppCompatActivity {
+
+    private OSFacebookLogin osFacebookLogin;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Button fbSignIn = (Button) findViewById(R.id.fbLogin);
+        Button fbSignOut = (Button) findViewById(R.id.fbLogout);
+
+        osFacebookLogin = new OSFacebookLogin(new OSFacebookListener() {
+            @Override
+            public void onFacebookSuccess(OSResponse osResponse) {
+                Toast.makeText(getApplicationContext(), osResponse.getName(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFacebookFailed(String s) {
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFacebookSignOut() {
+                Toast.makeText(getApplicationContext(), "Sign out successfully", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        fbSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                osFacebookLogin.performSignIn((Activity) getApplicationContext());
+            }
+        });
+
+        fbSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                osFacebookLogin.performSignOut();
+            }
+        });
+        
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        osFacebookLogin.onActivityResult(requestCode, resultCode, data);
+    }
+}
+
+```
 
