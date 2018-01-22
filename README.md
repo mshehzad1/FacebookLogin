@@ -28,3 +28,32 @@ dependencies {
     implementation 'com.github.mshehzad1:FacebookLogin:1.0'
 }
 ```
+
+### Facebook App Id
+Create your facebook app on facebook developer console and get facebook app id.
+
+### AndroidManifest
+
+Permissions: 
+Add the internet permissions
+
+```
+<uses-permission android:name="android.permission.INTERNET" />
+```
+Meta Data: 
+Add following metadata in app manifest file
+
+```
+<meta-data
+ android:name="com.facebook.sdk.ApplicationId"
+ android:value="@string/facebook_app_id" />
+```
+Facebook App id: Add your app facebook id in strings file.
+
+```
+<resources>
+    <string name="facebook_app_id">your facebokk app id gose here .... </string>
+</resources>
+
+```
+
