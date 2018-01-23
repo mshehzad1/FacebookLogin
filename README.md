@@ -134,6 +134,38 @@ Implements OSFacebookListener in your Login activity, it will add following meth
 
 ```
 public class Login extends AppCompatActivity implements OSFacebookListener{
+
+    private Button fbSignIn, fbSignOut;
+    private OSFacebookLogin osFacebookLogin;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        fbSignIn = (Button) findViewById(R.id.fbLogin);
+        fbSignOut = (Button) findViewById(R.id.fbLogout);
+        
+        // Initilizaing facebook login listener
+        osFacebookLogin = new OSFacebookLogin(this);
+
+        fbSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // For facebook signin, call this in click linstener. 
+                osFacebookLogin.performSignIn(this);
+            }
+        });
+
+        fbSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // For facebook signout, call this in click linstener. 
+                osFacebookLogin.performSignOut();
+            }
+        });      
+    }
+
 @Override
     public void onFacebookSuccess(OSResponse osResponse) {
         Toast.makeText(getApplicationContext(), osResponse.getName(), Toast.LENGTH_SHORT).show();
@@ -151,7 +183,7 @@ public class Login extends AppCompatActivity implements OSFacebookListener{
 }
 ```
 
-Override the onActivityResult method with this
+Override the onActivityResult method like this
 
 ```
  @Override
