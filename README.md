@@ -24,7 +24,7 @@ Add the dependency
 
 ```
 dependencies {
-    implementation 'com.github.mshehzad1:FacebookLogin:1.0'
+    implementation 'com.github.mshehzad1:FacebookLogin:1.1'
 }
 ```
 
