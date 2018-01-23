@@ -119,7 +119,7 @@ public class Login extends AppCompatActivity {
 
 ```
 
-### Getting started ( Second Method )
+### Second Method
 Create a private OSFacebookLogin variable
 
 ```
@@ -151,3 +151,12 @@ public class Login extends AppCompatActivity implements OSFacebookListener{
 }
 ```
 
+Override the onActivityResult method with this
+
+```
+ @Override
+ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+     super.onActivityResult(requestCode, resultCode, data);
+     osFacebookLogin.onActivityResult(requestCode, resultCode, data);
+ }
+```
