@@ -54,15 +54,15 @@ public class MainActivity extends AppCompatActivity implements OSFacebookListene
     }
 
     @Override
-    public void onFacebookFailed(String errorMessage) {
-        Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
-        tvText.setText("");
-    }
-
-    @Override
     public void onFacebookSuccess(OSResponse osResponse) {
         Toast.makeText(getApplicationContext(), osResponse.getName(), Toast.LENGTH_SHORT).show();
         tvText.setText(osResponse.getAccessToken().getToken());
+    }
+
+    @Override
+    public void onFacebookFailed(String errorMessage) {
+        Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
+        tvText.setText("");
     }
 
     @Override
